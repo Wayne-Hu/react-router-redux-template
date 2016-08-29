@@ -6,3 +6,9 @@ gulp.task('dev', function () {
         .pipe(webpack( require('./webpack.config.dev') ))
         .pipe(gulp.dest('build/js'));
 });
+
+gulp.task('prod', function () {
+    gulp.src('src/main.js')
+        .pipe(webpack( require('./webpack.config.prod') ))
+        .pipe(gulp.dest('build/js'));
+});

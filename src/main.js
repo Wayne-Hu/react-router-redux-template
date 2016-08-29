@@ -18,15 +18,16 @@ const reducer = combineReducers({
     routing: routerReducer
 });
 
-const DevTools = createDevTools(
-    <DockMonitor toggleVisibilityKey="ctrl-h" changePositionKey="ctrl-q">
-        <LogMonitor theme="tomorrow" preserveScrollTop={false}/>
-    </DockMonitor>
-);
+// const DevTools = createDevTools(
+//     <DockMonitor toggleVisibilityKey="ctrl-h" changePositionKey="ctrl-q">
+//         <LogMonitor theme="tomorrow" preserveScrollTop={false}/>
+//     </DockMonitor>
+// );
 
 const store = createStore(
     reducer,
-    DevTools.instrument()
+    // DevTools.instrument()
+    window.devToolsExtension && window.devToolsExtension()
 );
 
 const history = syncHistoryWithStore(browserHistory, store);
@@ -41,7 +42,7 @@ ReactDom.render(
                     <Route path="bar" component={Bar}/>
                 </Route>
             </Router>
-            <DevTools />
+            {/*<DevTools />*/}
         </div>
     </Provider>,
     document.getElementById('app')

@@ -1,5 +1,4 @@
 var webpack = require('webpack');
-var merge = require('webpack-merge');
 
 module.exports = {
     output: {
@@ -17,7 +16,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                exclude: /(node_modules)/,
+                exclude: /(node_modules|bower_modules)/,
                 test: /\.js?$/,
                 loaders: ['react-hot', 'babel-loader']
             }
