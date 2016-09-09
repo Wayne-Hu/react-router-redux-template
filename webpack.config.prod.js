@@ -14,9 +14,11 @@ module.exports = {
             'react-dom',
             'classnames',
             'redux',
+            'redux-saga',
             'react-redux',
             'react-router',
-            'react-router-redux'
+            'react-router-redux',
+            'babel-polyfill'
         ]
     },
     module: {

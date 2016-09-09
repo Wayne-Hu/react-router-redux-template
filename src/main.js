@@ -5,11 +5,13 @@ import {createDevTools} from 'redux-devtools'
 import LogMonitor from 'redux-devtools-log-monitor'
 import DockMonitor from 'redux-devtools-dock-monitor'
 
-import {createStore, combineReducers} from 'redux'
+import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import {syncHistoryWithStore, routerReducer} from 'react-router-redux'
+import createSagaMiddleware from 'redux-saga'
 
+import sagas from './sagas'
 import * as reducers from './reducers'
 import {App, Home, Foo, Bar} from './components'
 
@@ -24,11 +26,16 @@ const reducer = combineReducers({
 //     </DockMonitor>
 // );
 
+const sagaMiddleware = createSagaMiddleware();
+
 const store = createStore(
     reducer,
     // DevTools.instrument()
-    window.devToolsExtension && window.devToolsExtension()
+    window.devToolsExtension && window.devToolsExtension(),
+    applyMiddleware(sagaMiddleware)
 );
+
+sagaMiddleware.run(sagas);
 
 const history = syncHistoryWithStore(browserHistory, store);
 
