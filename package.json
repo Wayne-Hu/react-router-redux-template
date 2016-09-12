@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require ./test/.setup.js --compilers js:babel-register --recursive"
   },
   "author": "Wayne Hu",
   "license": "ISC",
@@ -27,11 +27,16 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-1": "^6.13.0",
+    "babel-register": "^6.14.0",
+    "chai": "^3.5.0",
     "css-loader": "^0.24.0",
+    "enzyme": "^2.4.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "gulp": "^3.9.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "mocha": "^3.0.2",
+    "react-addons-test-utils": "^15.3.1",
     "react-hot-loader": "^1.3.0",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
