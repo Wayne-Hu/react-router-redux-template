@@ -11,12 +11,12 @@ import {delay} from 'redux-saga'
 import * as actions from '../actions/count'
 
 export function* increase() {
-    delay(1000);
+    yield delay(1000);
     yield put(actions.increase(1));
 }
 
 export function* decrease() {
-    delay(1000);
+    yield delay(1000);
     yield put(actions.decrease(1));
 }
 
