@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ./test/.setup.js --compilers js:babel-register --recursive"
+    "test": "mocha --require ./test/.setup.js --require babel-polyfill --compilers js:babel-register --recursive"
   },
   "author": "Wayne Hu",
   "license": "ISC",
